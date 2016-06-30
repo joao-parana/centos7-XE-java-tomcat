@@ -1,8 +1,8 @@
-# centos7-XE-docker
+# centos7-XE-java-tomcat
 
-Cria a Imagem Docker parana/centos7-xe-docker
+Cria a Imagem Docker parana/centos7-XE-java-tomcat
 
-This **Dockerfile** is a [trusted build](https://hub.docker.com/r/parana/centos7-xe-docker/) of [Docker Registry](https://hub.docker.com/).
+This **Dockerfile** is a [trusted build](https://hub.docker.com/r/parana/centos7-XE-java-tomcat/) of [Docker Registry](https://hub.docker.com/).
 
 ## Building on boot2docker & Docker Machine
 
@@ -24,7 +24,7 @@ After restarting boot2docker / Docker Machine, it will have increased swap size.
 
 ## How to use
 
-The command `docker run -p 8087:8087 -p 1521:1521 -d parana/centos7-xe-docker` will start new container and bind it's local ports `1521` and `8087` to host's `1521` and `8087` respectively.
+The command `docker run -p 8087:8087 -p 1521:1521 -d parana/centos7-XE-java-tomcat` will start new container and bind it's local ports `1521` and `8087` to host's `1521` and `8087` respectively.
 
 Oracle Web Management Console (apex) will be available at [http://localhost:8087/apex](http://localhost:8087/apex).
 Use the following credentials to login:
