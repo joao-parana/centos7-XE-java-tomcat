@@ -5,5 +5,5 @@ set -e
 export HUB_USER_NAME=parana
 
 # O nome da TAG deve ser toda em Minúsculo. O nome centos7-XE-docker não é aceito
-docker build -t $HUB_USER_NAME/centos7-xe-docker .
+docker build -t $HUB_USER_NAME/centos7-xe-java-tomcat .
 
