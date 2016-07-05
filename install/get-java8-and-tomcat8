@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e
+
+# Java Version
+export JAVA_VERSION_MAJOR=8
+export JAVA_VERSION_MINOR=91
+export JAVA_VERSION_BUILD=14
+export JAVA_PACKAGE=jdk
+export ORACLE_SITE=download.oracle.com/otn-pub/java/jdk
+export JAVA_FILE=${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz
+# URL Example: http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.tar.gz
+
+# Tomcat Version
+export TOMCAT_MAJOR_VERSION=8
+export TOMCAT_VERSION=8.0.36
+export TOMCAT_SITE=http://archive.apache.org/dist/tomcat
+export TOMCAT_TGZ_URL=${TOMCAT_SITE}/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
+export TOMCAT_FILE=apache-tomcat-${TOMCAT_VERSION}.tar.gz
+# URL Example: http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.36/bin/apache-tomcat-8.0.36.tar.gz
+
+rm -rf ${TOMCAT_FILE} ${JAVA_FILE} jdk8
+mkdir jdk8
+mkdir tomcat8
+
+# Large File is splited using: split -b 49000000 large-file.ext
+
+# Download and split Java
+
+echo "Downloading Java 8  ..."
+curl -OjksSLH "Cookie: oraclelicense=accept-securebackup-cookie" \
+     http://${ORACLE_SITE}/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_FILE}
+cd jdk8
+echo "Spliting Java 8 installer ..."
+split -b 49000000 ../${JAVA_FILE}
+rm ../${JAVA_FILE}
+
+echo "Downloading Tomcat 8 ..."
+cd ../tomcat8 
+curl -O http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/${TOMCAT_FILE}
+
+find . -type f
