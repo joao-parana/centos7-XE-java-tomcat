@@ -4,7 +4,7 @@ FROM parana/centos7
 
 MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>`
 
-ENV REFRESHED_AT 2016-07-05-15hours
+ENV REFRESHED_AT 2016-07-05-16-30hours
 
 #
 # Please execute cd install && ./get-java8-and-tomcat8 to Download binary files if you prefer
