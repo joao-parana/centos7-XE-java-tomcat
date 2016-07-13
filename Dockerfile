@@ -11,7 +11,20 @@ ENV REFRESHED_AT 2016-07-05-16-30hours
 #
 
 # Adding Oracle and others dependencies
-RUN yum install -y libaio bc initscripts net-tools rsyslog && yum clean all
+# RUN yum install -y iproute iptables libmnl libnetfilter_conntrack libnfnetlink sysvinit-tools libaio bc initscripts net-tools rsyslog && yum clean all
+
+RUN yum install -y iproute 
+RUN yum install -y iptables 
+RUN yum install -y libmnl 
+RUN yum install -y libnetfilter_conntrack 
+RUN yum install -y libnfnetlink 
+RUN yum install -y sysvinit-tools 
+RUN yum install -y libaio 
+RUN yum install -y bc 
+RUN yum install -y initscripts 
+RUN yum install -y net-tools 
+RUN yum install -y rsyslog 
+RUN yum clean all
 
 # Set environment
 ENV JAVA_HOME /opt/jdk
