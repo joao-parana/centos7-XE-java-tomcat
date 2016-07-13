@@ -10,10 +10,6 @@ ENV REFRESHED_AT 2016-07-05-16-30hours
 # Please execute cd install && ./get-java8-and-tomcat8 to Download binary files if you prefer
 #
 
-# Adding Apache web server
-RUN yum -y update && yum -y install httpd && yum clean all && systemctl enable httpd.service
-EXPOSE 80
-
 # Adding Oracle and others dependencies
 RUN yum install -y libaio bc initscripts net-tools rsyslog && yum clean all
 
@@ -136,8 +132,8 @@ USER root
 RUN systemctl enable tomcat
 
 # Run script
-ADD config/start.sh /
-CMD /start.sh
+ADD config/start.sh /start-all.sh
+CMD /start-all.sh
 
 # CMD ["/usr/sbin/init"]
 

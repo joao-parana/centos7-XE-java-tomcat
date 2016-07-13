@@ -22,3 +22,6 @@ echo "Verifique o nome do HOST no listener.ora e tnsnames.ora"
 grep HOST $ORACLE_HOME/network/admin/listener.ora
 grep HOST $ORACLE_HOME/network/admin/tnsnames.ora
 
+sleep 10
+echo "••• `date` - Tomcat 8 vai iniciar "
+${CATALINA_HOME}/bin/catalina.sh run
